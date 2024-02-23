@@ -13,13 +13,12 @@ public class LoginService {
     @Autowired
     private AlumnoRepository alumnoRepository;
 
-    public void verificarCredenciales(String email, String contrasena) throws LoginException {
+    public void acreditarUsuario(String email, String contrasena) throws LoginException {
         // Busco al alumno por el correo electrónico
         Alumno alumno = alumnoRepository.getByEmail(email);
 
         // Compruebo que el alumno exista que la contraseña coincida
         if (alumno != null && alumno.getContrasena().equals(contrasena)) {
-            // Credenciales válidas
         } else {
             throw new LoginException("El usuario no coincide con la contraseña");
         }

@@ -22,4 +22,8 @@ public interface AlumnoRepository  extends JpaRepository<Alumno, Long> {
 
     @Query("SELECT a FROM Alumno a WHERE a.empresa.nombre = :nombreEmpresa")
     List<Alumno> getAllByNombreEmpresa(@Param("nombreEmpresa") String nombreEmpresa);
+
+
+    @Query("SELECT DISTINCT a FROM Alumno a JOIN a.actividad_diaria act WHERE act.idactividad = :idActividad")
+    List<Alumno> getAllByActividad(@Param("idActividad") Long idActividad);
 }

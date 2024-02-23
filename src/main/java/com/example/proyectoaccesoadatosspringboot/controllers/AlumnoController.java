@@ -139,4 +139,14 @@ public class AlumnoController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    // Obtengo todos los alumnos que están realizando una actividad específica
+    @GetMapping("/byActividad/{idActividad}")
+    public ResponseEntity<List<Alumno>> getAlumnosByActividad(@PathVariable Long idActividad) {
+        // Utiliza el repositorio de alumnos para obtener la lista de alumnos asociados a la actividad
+        List<Alumno> alumnos = alumnoRepository.getAllByActividad(idActividad);
+
+        // Devuelve la lista de alumnos en la respuesta HTTP con el código de estado OK
+        return new ResponseEntity<>(alumnos, HttpStatus.OK);
+    }
 }
