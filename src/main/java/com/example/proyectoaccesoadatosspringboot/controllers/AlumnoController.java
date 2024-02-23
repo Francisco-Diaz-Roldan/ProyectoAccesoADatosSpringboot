@@ -4,7 +4,6 @@ import com.example.proyectoaccesoadatosspringboot.modelos.Actividad;
 import com.example.proyectoaccesoadatosspringboot.modelos.Alumno;
 import com.example.proyectoaccesoadatosspringboot.modelos.Empresa;
 import com.example.proyectoaccesoadatosspringboot.modelos.Profesor;
-import com.example.proyectoaccesoadatosspringboot.repositorios.ActividadRepository;
 import com.example.proyectoaccesoadatosspringboot.repositorios.AlumnoRepository;
 import com.example.proyectoaccesoadatosspringboot.repositorios.EmpresaRepository;
 import com.example.proyectoaccesoadatosspringboot.repositorios.ProfesorRepository;
@@ -25,13 +24,12 @@ public class AlumnoController {
     private AlumnoRepository alumnoRepository;
 
     @Autowired
-    private ActividadRepository actividadRepository;
-
-    @Autowired
     private EmpresaRepository empresaRepository;
 
     @Autowired
     private ProfesorRepository profesorRepository;
+
+//TODO Hacer un post Mapping y dentro de ésteel cambiode pantalla con HTML
 
 
     // Listo a  todos los Alumnos

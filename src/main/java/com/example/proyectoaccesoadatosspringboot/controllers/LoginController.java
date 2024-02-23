@@ -19,6 +19,9 @@ public class LoginController {
     @GetMapping("/login")
     public String loginPage() { return "login"; }
 
+
+    //TODO Hacer un post Mapping y dentro de ésteel cambiode pantalla con HTML
+
     @PostMapping
     public ResponseEntity<String> login(@RequestBody Alumno alumno) {
         String email = alumno.getEmail();
