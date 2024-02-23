@@ -7,10 +7,11 @@ import com.example.proyectoaccesoadatosspringboot.repositorios.AlumnoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api/login")
+@Controller
+@RequestMapping("/api")
 public class LoginController {
 
     @Autowired
@@ -18,6 +19,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String loginPage() { return "login"; }
+
 
 
     //TODO Hacer un post Mapping y dentro de ésteel cambiode pantalla con HTML
