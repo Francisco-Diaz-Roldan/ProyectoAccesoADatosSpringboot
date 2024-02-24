@@ -34,4 +34,24 @@ public class Alumno {
     @JsonIgnore
     @OneToMany(mappedBy = "alumno", fetch = FetchType.EAGER)
     private List<Actividad> actividad_diaria = new ArrayList<>();
+
+    @Override
+    public String toString( ) {
+        return "Alumno{" +
+                "idalumno=" + idalumno +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", dni='" + dni + '\'' +
+                ", nacimiento=" + nacimiento +
+                ", email='" + email + '\'' +
+                ", telefono=" + telefono +
+                ", empresa=" + empresa.getNombre() +
+                ", tutor=" + tutor.getNombre() +
+                ", horasdual=" + horasdual +
+                ", horasfct=" + horasfct +
+                ", observaciones='" + observaciones + '\'' +
+                ", actividad_diaria=" + actividad_diaria +
+                '}';
+    }
 }

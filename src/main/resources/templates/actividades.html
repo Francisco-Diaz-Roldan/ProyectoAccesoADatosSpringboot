@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1 th:each="actividad: ${actividades}"></h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Actividad</th>
+        <th>Tipo</th>
+        <th>Alumno</th>
+        <th>Fecha</th>
+        <th>Horas</th>
+        <th>Observaciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="actividad: ${actividades}">
+        <td th:text="${actividad.getIdactividad()}"></td>
+        <td>
+            <a th:href=" '/api/actividad/'+${actividad.getIdactividad()}"  th:text="${actividad.getActivity()}">
+            </a>
+        </td>
+        <td th:text="${actividad.getTipo()}"></td>
+        <td th:text="${actividad.getAlumno().getNombre() + actividad.getAlumno().getApellidos()}"></td>
+        <td th:text="${actividad.getFecha().toString().substring(0,10)}"></td>
+        <td th:text="${actividad.getHoras()}"></td>
+        <td th:text="${actividad.getObservacion()}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="${'/api/login'}">LogOut</a>
+<a th:href="${'/api/new'}">Nueva Actividad</a>
+
+</body>
+</html>

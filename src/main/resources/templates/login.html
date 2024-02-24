@@ -32,7 +32,7 @@
             box-sizing: border-box;
             font-size: 14px;
         }
-        .form button {
+        .form input.submit {
             font-family: "Roboto", sans-serif;
             text-transform: uppercase;
             outline: 0;
@@ -44,7 +44,7 @@
             font-size: 14px;
             cursor: pointer;
         }
-        .form button:hover,.form button:active,.form button:focus {
+        .form inpunt.submit:hover,.form inpunt.submit:active,.form inpunt.submit:focus {
             background: #43A047;
         }
         .form .message {
@@ -102,25 +102,17 @@
             -moz-osx-font-smoothing: grayscale;
         }
     </style>
-    <link rel="stylesheet" type="text/css" href="./login.css">
 </head>
 <body>
 <div class="login-page">
 
     <div class="form">
         <h1>Login</h1>
-        <form class="register-form">
-            <input type="text" placeholder="name"/>
-            <input type="password" placeholder="password"/>
-            <input type="text" placeholder="email address"/>
-            <button>create</button>
-            <p class="message">Already registered? <a href="#">Sign In</a></p>
-        </form>
-        <form class="login-form">
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
-            <button>login</button>
-            <p class="message">Not registered? <a href="#">Create an account</a></p>
+
+        <form class="login-form"  method="POST">
+            <input name="email" type="text" placeholder="username"/>
+            <input name="pass" type="password" placeholder="password"/>
+            <input type="submit" value="Login" class="submit">
         </form>
     </div>
 </div>

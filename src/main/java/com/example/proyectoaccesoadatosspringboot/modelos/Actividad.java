@@ -14,12 +14,25 @@ public class Actividad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idactividad;
-    private Date fecha;
+    private String fecha;
     private String observacion;
     private Integer horas;
-    private Tipo tipo;
-    private String actividad;
+    private String tipo;
+    private String activity;
     @ManyToOne
     @JoinColumn(name = "alumno", referencedColumnName = "idalumno")
     private Alumno alumno;
+
+    @Override
+    public String toString( ) {
+        return "Actividad{" +
+                "idactividad=" + idactividad +
+                ", fecha=" + fecha +
+                ", observacion='" + observacion + '\'' +
+                ", horas=" + horas +
+                ", tipo='" + tipo + '\'' +
+                ", actividad='" + activity + '\'' +
+                ", alumno=" + alumno.getNombre() +
+                '}';
+    }
 }

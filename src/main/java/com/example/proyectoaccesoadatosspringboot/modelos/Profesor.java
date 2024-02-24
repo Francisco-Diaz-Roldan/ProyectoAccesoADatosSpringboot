@@ -22,4 +22,16 @@ public class Profesor {
     @JsonIgnore
     @OneToMany(mappedBy = "tutor", fetch = FetchType.EAGER)
     private List<Alumno> alumnos = new ArrayList<>();
+
+    @Override
+    public String toString( ) {
+        return "Profesor{" +
+                "idprofesor=" + idprofesor +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", email='" + email + '\'' +
+                ", contrasenya='" + contrasenya + '\'' +
+                ", alumnos=" + alumnos.size() +
+                '}';
+    }
 }
