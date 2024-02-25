@@ -2,11 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align:center;
+        }
+
+        body {
+            background-color: #43a047;
+        }
+
+        table {
+            font-size: .9em;
+            font-weight: 300;
+            line-height: 40px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 2px solid #aaaaaa;
+            width: 500px;
+            margin: 50px auto;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,.16);
+            border-radius: 2px;
+        }
+
+        th {
+            background: grey;
+            color: #fff;
+            border: none;
+        }
+
+        td{
+            background-color: #f8f8f8;
+        }
+
+        tr:hover:not(th) {
+            background-color: green;
+        }
+
+
+        input[type="button"] {
+            transition: all .3s;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        input[type="button"]:not(.active) {
+            background-color:transparent;
+        }
+
+        .active {
+            background-color: #aaaaaa;
+            color :#fff;
+        }
+
+        input[type="button"]:hover:not(.active) {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 <body>
 <h1 th:each="actividad: ${actividades}"></h1>
 
-<table border="1">
+<table>
     <thead>
     <tr>
         <th>id</th>
