@@ -6,11 +6,25 @@
         * {
             margin: 0;
             padding: 0;
-            text-align:center;
+            text-align: center;
         }
 
         body {
-            background-color: #43a047;
+            background: #76b852;
+            background: rgb(141, 194, 111);
+            background: linear-gradient(90deg, rgba(141, 194, 111, 1) 0%, rgba(118, 184, 82, 1) 50%);
+            font-family: "Roboto", sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #F8F8F8;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .16);
+            padding: 30px;
         }
 
         table {
@@ -20,82 +34,85 @@
             border-collapse: separate;
             border-spacing: 0;
             border: 2px solid #aaaaaa;
-            width: 500px;
-            margin: 50px auto;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,.16);
+            width: 100%;
             border-radius: 2px;
+            margin-bottom: 20px;
+            background-color: #FFFFFF;
         }
 
         th {
-            background: grey;
-            color: #fff;
+            background: #43A047;
+            color: #FFFFFF;
             border: none;
         }
 
-        td{
-            background-color: #f8f8f8;
+        td {
+            background-color: #FFFFFF;
         }
 
         tr:hover:not(th) {
             background-color: green;
         }
 
-
-        input[type="button"] {
+        .button {
             transition: all .3s;
-            border: 1px solid #ddd;
-            padding: 8px 16px;
+            border: 1px solid #43A047;
+            padding: 12px 24px;
             text-decoration: none;
             border-radius: 5px;
             font-size: 15px;
+            cursor: pointer;
+            background-color: #43A047;
+            color: #FFFFFF;
         }
 
-        input[type="button"]:not(.active) {
-            background-color:transparent;
+        .button:not(.active) {
+            color: #FFFFFF;
         }
 
         .active {
             background-color: #aaaaaa;
-            color :#fff;
+            color: #fff;
         }
 
-        input[type="button"]:hover:not(.active) {
-            background-color: #ddd;
+        .button:hover:not(.active) {
+            background-color: #4CAF50;
         }
     </style>
 </head>
 <body>
-<h1 th:each="actividad: ${actividades}"></h1>
 
-<table>
-    <thead>
-    <tr>
-        <th>id</th>
-        <th>Actividad</th>
-        <th>Tipo</th>
-        <th>Alumno</th>
-        <th>Fecha</th>
-        <th>Horas</th>
-        <th>Observaciones</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="actividad: ${actividades}">
-        <td th:text="${actividad.getIdactividad()}"></td>
-        <td>
-            <a th:href=" '/api/actividad/'+${actividad.getIdactividad()}"  th:text="${actividad.getActivity()}">
-            </a>
-        </td>
-        <td th:text="${actividad.getTipo()}"></td>
-        <td th:text="${actividad.getAlumno().getNombre() + actividad.getAlumno().getApellidos()}"></td>
-        <td th:text="${actividad.getFecha().toString().substring(0,10)}"></td>
-        <td th:text="${actividad.getHoras()}"></td>
-        <td th:text="${actividad.getObservacion()}"></td>
-    </tr>
-    </tbody>
-</table>
-<a th:href="${'/api/login'}">LogOut</a>
-<a th:href="${'/api/new'}">Nueva Actividad</a>
+<div class="container">
+
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Actividad</th>
+            <th>Tipo</th>
+            <th>Alumno</th>
+            <th>Fecha</th>
+            <th>Horas</th>
+            <th>Observaciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="actividad: ${actividades}">
+            <td th:text="${actividad.getIdactividad()}"></td>
+            <td>
+                <a th:href="'/api/actividad/' + ${actividad.getIdactividad()}" th:text="${actividad.getActivity()}"></a>
+            </td>
+            <td th:text="${actividad.getTipo()}"></td>
+            <td th:text="${actividad.getAlumno().getNombre() + ' ' + actividad.getAlumno().getApellidos()}"></td>
+            <td th:text="${actividad.getFecha().toString().substring(0, 10)}"></td>
+            <td th:text="${actividad.getHoras()}"></td>
+            <td th:text="${actividad.getObservacion()}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="button" onclick="window.location.href='/api/login'">LogOut</button>
+    <button class="button" onclick="window.location.href='/api/new'">Nueva Actividad</button>
+</div>
 
 </body>
 </html>
