@@ -6,6 +6,9 @@ import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * Clase que representa una actividad realizada por un alumno.
+ */
 @Data
 @Entity
 @Table(name = "actividad")
@@ -23,6 +26,10 @@ public class Actividad {
     @JoinColumn(name = "alumno", referencedColumnName = "idalumno")
     private Alumno alumno;
 
+    /**
+     * Método toString para representar la actividad como una cadena de texto.
+     * @return Representación de la actividad en forma de cadena de texto.
+     */
     @Override
     public String toString( ) {
         return "Actividad{" +

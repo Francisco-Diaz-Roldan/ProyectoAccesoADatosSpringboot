@@ -10,6 +10,9 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
+/**
+ * Interfaz de repositorio para la entidad Actividad.
+ */
 public interface ActividadRepository extends JpaRepository<Actividad, Long> {
 
 }

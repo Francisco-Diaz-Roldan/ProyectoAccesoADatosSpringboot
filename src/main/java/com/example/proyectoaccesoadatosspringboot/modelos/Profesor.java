@@ -8,6 +8,9 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que representa a un profesor.
+ */
 @Data
 @Entity
 @Table(name = "profesor")
@@ -23,6 +26,10 @@ public class Profesor {
     @OneToMany(mappedBy = "tutor", fetch = FetchType.EAGER)
     private List<Alumno> alumnos = new ArrayList<>();
 
+    /**
+     * Método toString para representar al profesor como una cadena de texto.
+     * @return Representación del profesor en forma de cadena de texto.
+     */
     @Override
     public String toString( ) {
         return "Profesor{" +

@@ -8,6 +8,9 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que representa una empresa.
+ */
 @Data
 @Entity
 @Table(name = "empresas")
@@ -24,6 +27,10 @@ public class Empresa {
     @OneToMany(mappedBy = "empresa",fetch = FetchType.EAGER)
     private List<Alumno> alumnos = new ArrayList<>();
 
+    /**
+     * Método toString para representar la empresa como una cadena de texto.
+     * @return Representación de la empresa en forma de cadena de texto.
+     */
     @Override
     public String toString( ) {
         return "Empresa{" +

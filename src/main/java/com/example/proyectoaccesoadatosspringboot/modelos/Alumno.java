@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Clase que representa a un alumno.
+ */
 @Data
 @Entity
 @Table(name = "alumno")
@@ -35,6 +38,10 @@ public class Alumno {
     @OneToMany(mappedBy = "alumno", fetch = FetchType.EAGER)
     private List<Actividad> actividad_diaria = new ArrayList<>();
 
+    /**
+     * Método toString para representar al alumno como una cadena de texto.
+     * @return Representación del alumno en forma de cadena de texto.
+     */
     @Override
     public String toString( ) {
         return "Alumno{" +

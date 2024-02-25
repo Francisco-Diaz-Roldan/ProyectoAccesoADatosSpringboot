@@ -168,7 +168,7 @@
                 <textarea placeholder="Observaciones" tabindex="5" th:value="${actividad.getObservacion()}" name="observacion"></textarea>
             </fieldset>
             <fieldset>
-                <input type="number" placeholder="Numero de horas" th:value="${actividad.getHoras()}" name="horas" required>
+                <input type="number" placeholder="Numero de horas" th:value="${actividad.getHoras()}" name="horas" required min="0">
             </fieldset>
             <fieldset>
                 <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Guardar</button>
