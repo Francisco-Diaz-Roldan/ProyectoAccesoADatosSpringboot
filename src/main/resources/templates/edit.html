@@ -27,7 +27,8 @@
             color: #777;
             background: #76b852;
             background: rgb(141,194,111);
-            background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);        }
+            background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
+        }
 
         .container {
             max-width: 400px;
@@ -38,7 +39,8 @@
 
         #contact input,
         #contact textarea,
-        #contact button[type="submit"] {
+        #contact button[type="submit"],
+        #contact button[type="button"] {
             font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
         }
 
@@ -96,15 +98,19 @@
             resize: none;
         }
 
-        #contact button[type="submit"] {
+        #contact button[type="submit"],
+        #contact button[type="button"] {
             cursor: pointer;
             width: 100%;
             border: none;
-            background: #4CAF50;
-            color: #FFF;
             margin: 0 0 5px;
             padding: 10px;
             font-size: 15px;
+        }
+
+        #contact button[type="submit"] {
+            background: #4CAF50;
+            color: #FFF;
         }
 
         #contact button[type="submit"]:hover {
@@ -115,6 +121,22 @@
         }
 
         #contact button[type="submit"]:active {
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        #contact button[type="button"] {
+            background: #4CAF50;
+            color: #FFF;
+        }
+
+        #contact button[type="button"]:hover {
+            background: #43A047;
+            -webkit-transition: background 0.3s ease-in-out;
+            -moz-transition: background 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #contact button[type="button"]:active {
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
         }
 
@@ -147,35 +169,37 @@
 </head>
 <body>
 
-    <div class="container">
-        <form id="contact" action="" method="post">
-            <h4 th:if="${actividad.getIdactividad()!=null}" th:text="${actividad.getAlumno().getNombre()} +': Actividad numero '+ ${actividad.getIdactividad()}"></h4>
-            <h4 th:unless="${actividad.getIdactividad()!=null}">Nueva actividad</h4>
-            <input th:value="${actividad.idactividad}" type="hidden" name="idactividad">
-            <fieldset>
-                <input placeholder="Descripcion" tabindex="2" th:value="${actividad.getActivity()}" type="text" name="activity" required autofocus>
-            </fieldset>
-            <fieldset>
-                <input placeholder="Fecha" tabindex="3"  th:value="${actividad.getFecha()}" type="date" name="fecha" required>
-            </fieldset>
-            <fieldset>
-                tipo
-                <select th:value="${actividad.getTipo()}"  name="tipo">
-                    <option value="dual">dual</option>
-                    <option value="fct">fct</option>
-                </select>
-            </fieldset>
-            <fieldset>
-                <textarea placeholder="Observaciones" tabindex="5" th:value="${actividad.getObservacion()}" name="observacion"></textarea>
-            </fieldset>
-            <fieldset>
-                <input type="number" placeholder="Numero de horas" th:value="${actividad.getHoras()}" name="horas" required min="0">
-            </fieldset>
-            <fieldset>
-                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Guardar</button>
-            </fieldset>
-        </form>
-    </div>
-
+<div class="container">
+    <form id="contact" action="" method="post">
+        <h4 th:if="${actividad.getIdactividad()!=null}" th:text="${actividad.getAlumno().getNombre()} +': Actividad numero '+ ${actividad.getIdactividad()}"></h4>
+        <h4 th:unless="${actividad.getIdactividad()!=null}">Nueva actividad</h4>
+        <input th:value="${actividad.idactividad}" type="hidden" name="idactividad">
+        <fieldset>
+            <input placeholder="Descripcion" tabindex="2" th:value="${actividad.getActivity()}" type="text" name="activity" required autofocus>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Fecha" tabindex="3"  th:value="${actividad.getFecha()}" type="date" name="fecha" required>
+        </fieldset>
+        <fieldset>
+            tipo
+            <select th:value="${actividad.getTipo()}"  name="tipo">
+                <option value="dual">dual</option>
+                <option value="fct">fct</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <textarea placeholder="Observaciones" tabindex="5" th:value="${actividad.getObservacion()}" name="observacion"></textarea>
+        </fieldset>
+        <fieldset>
+            <input type="number" placeholder="Numero de horas" th:value="${actividad.getHoras()}" name="horas" required min="0">
+        </fieldset>
+        <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Guardar</button>
+        </fieldset>
+        <fieldset>
+            <button type="button" onclick="history.back()" id="back-button">Atrás</button>
+        </fieldset>
+    </form>
+</div>
 </body>
 </html>
